@@ -1,0 +1,3 @@
+﻿
+    set1：该目录的使用方都为windows，可设置git 配置项core.autocrlf为false，这样git就不用在提交或签出
+时进行crlf替换为lf或者lf替换为crlf(git会根据当前操作系统进行)。当然为true也没有问题。

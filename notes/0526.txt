@@ -1,0 +1,3 @@
+gitbash相比cmd能更好显示git相关信息，并能支持linux语法命令 rm  mv  mkdir，linux命令使用可通过--help查看帮助
+
+git add .表示添加该目录所有文件夹及文件，git add 文件名。

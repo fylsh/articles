@@ -1,3 +1,9 @@
 ﻿
     set1：该目录的使用方都为windows，可设置git 配置项core.autocrlf为false，这样git就不用在提交或签出
 时进行crlf替换为lf或者lf替换为crlf(git会根据当前操作系统进行)。当然为true也没有问题。
+
+    https交互方式下git push时需要的用户名和密码为github账户的用户名和密码。可以配置用ssh方式进行交互：
+1、项目地址为git@...，如git@github.com:fylsh/articles.git。
+2、配置ssh key，先本地生成一个key(用ssh-keygen命令 )，把该key配置到git服务器（配置后通过该key提交内容服务器自然能辨别是哪个用户进行的操作），
+对于github.com，先登录到https://github.com，在个人用户setting中设置ssh key：点击添加把之前生成的密钥文件内容粘贴上去即可。
+    ssh-keygen会在用户目录/.ssh/中生成密钥文件，git用ssh方式交互时会读取该位置文件，对不同git服务器可以用同一个密钥文件，但如果对不同git服务器生成不同密钥文件，在进行git前请确保/.ssh/文件夹下的密钥文件为它对应的文件，一般建议在生成密钥文件时把它备份到其它位置。

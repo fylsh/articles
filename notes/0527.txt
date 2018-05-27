@@ -1,0 +1,12 @@
+     node是服务端款苏构建工具，能很方便快速地建立起一个对外提供资源访问的服务端(如http web应用服务等)，
+运行在服务端解释执行node源文件，基于chrome引擎自然就支持javascript语法，js语言所有特性和api
+对node同样实用，不仅如此它还提供了自己语法和大量编程接口，通过这些接口可用很少代码
+就实现常见功能(模块依赖)，基于此node源文件以.js命名(不命名或其它也可)。
+把基于以上特性的应用称为node应用，以node..启动（对应进程名node.exe）如同java应用以java..一样，
+node应用之间除了通用访问方式（如偏向底层的socket、更高层级http ftp smtp等）自然可以定义特有
+访问方式（包括协议、数据格式等等，猜想传输层也是socket）如同java有java rmi，进一步猜想node应用
+也可定义自己协议（如java应用tomcat定义了ajp协议）express(node实现的web服务模块)是否也如此。
+node如同java，express如同tomcat。node能加载调用编译的c++库或文件(实现复杂功能)。
+    npm是node的管理和分发工具，全称node package manager。
+    node调试：node --debug some.js。使用chrome调试，用node --inspect-brk some.js；访问127.0.0.1:9229/json/list获取调试用url，用chrome访问它。
+

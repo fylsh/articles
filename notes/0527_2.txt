@@ -1,0 +1,20 @@
+﻿    git push：推送到远程仓库，git push [remote-name] [branch-name]，把本地分支的commit推送到仓库，仓库把推送的内容合并到分支。
+    		git push origin master：将master分支推送到origin（已存在追踪关系：即本地master追踪远程master）。
+    		git push -u origin master：本地master分支设置追踪关系到远程master分支，并把本地master分支推送到origin的master分支，
+    		       一般在远程仓库还没有该分支想在远程仓库创建一个同名的分支时使用，-u等同于--set-upstream用来设置追踪关系。
+    		       这种情况是本地分支至少管理一个文件(如从仓库克隆的或者从当前分支创建的新分支)，否则如果本地是新仓库(即只是进行了git init)那么需要至少commit一次
+    		       例如git init;git add ..;git commit -m "first commit";git push -u origin master;。不带-u也可当远程没有该同名分支时会创建一个同名分支。
+    		git push origin 本地分支1:远程分支2：把本地分支1推送到远程分支2。
+    		git push origin :master ：删除远程master分支，相当于推送一个空的本地分支到远程master，等同于git push origin --delete master。
+    		git push -f origin 本地分支1:远程分支2 ：用本地分支覆盖远程分支2。
+    		ps注意git push和git pull不跟任何内容则会把所有分支进行push或pull，具体可通过git status查看它们涉及分支。		
+    		
+    git fetch origin：拉取origin的仓库中有但本地还没有的信息（包括本地不存在的分支，分支上新的提交）。		
+        执行该操作后用git status可看到fetch到的信息，如Your branch is behind 'origin/master' by 1 commit说明获得远程master分支的一次提交。
+    
+    git add path：添加文件 多个文件用空格隔开，如果path是目录则表示添加该目录下所有更改文件，.表示当前目录。git add -i查看文件增加情况。
+    
+    切换本地分支时(git checkout 分支名)，会把源文件设置为该分支对应的内容。
+    
+    SourceTree可用于查看git分支图
+        

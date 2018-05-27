@@ -1,0 +1,75 @@
+﻿.. MINGW32 /f/github/test1/repo1 (master)
+$ git branch
+  feature/branch1
+* master
+
+.. MINGW32 /f/github/test1/repo1 (master)
+$ git branch feature/功能点1
+
+.. MINGW32 /f/github/test1/repo1 (master)
+$ git branch
+  feature/branch1
+  feature/功能点1
+* master
+
+.. MINGW32 /f/github/test1/repo1 (master)
+$ git checkout feature/功能点1
+Switched to branch 'feature/功能点1'
+
+.. MINGW32 /f/github/test1/repo1 (feature/功能点1)
+$ git add .
+
+.. MINGW32 /f/github/test1/repo1 (feature/功能点1)
+$ git add -i
+           staged     unstaged path
+  1:        +1/-0      nothing b1/f2/f2ps.txt
+  2:        +1/-0      nothing b2/b2ps.txt
+
+*** Commands ***
+  1: status       2: update       3: revert       4: add untracked
+  5: patch        6: diff         7: quit         8: help
+What now> 7
+Bye.
+
+.. MINGW32 /f/github/test1/repo1 (feature/功能点1)
+$ git commit -m "分支2提交"
+[feature/功能点1 5663bf0] 分支2提交
+ 2 files changed, 2 insertions(+)
+ create mode 100644 b1/f2/f2ps.txt
+ create mode 100644 b2/b2ps.txt
+
+.. MINGW32 /f/github/test1/repo1 (feature/功能点1)
+$ git branch -v
+  feature/branch1 32dd77a commit2
+* feature/功能点1 5663bf0 分支2提交
+  master          450ccf2 Create pic1
+
+.. MINGW32 /f/github/test1/repo1 (feature/功能点1)
+$ git remote -v
+origin  https://../repo1.git (fetch)
+origin  https://../repo1.git (push)
+
+.. MINGW32 /f/github/test1/repo1 (feature/功能点1)
+$ git branch -vv
+  feature/branch1 32dd77a [origin/feature/branch1] commit2
+* feature/功能点1 5663bf0 分支2提交
+  master          450ccf2 [origin/master] Create pic1
+
+.. MINGW32 /f/github/test1/repo1 (feature/功能点1)
+$ git push origin feature/功能点1
+
+Counting objects: 7, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (7/7), 479 bytes | 479.00 KiB/s, done.
+Total 7 (delta 0), reused 0 (delta 0)
+To https://../repo1.git
+ * [new branch]      feature/功能点1 -> feature/功能点1
+
+.. MINGW32 /f/github/test1/repo1 (feature/功能点1)
+$ git branch
+  feature/branch1
+* feature/功能点1
+  master
+
+.. MINGW32 /f/github/test1/repo1 (feature/功能点1)

@@ -10,3 +10,17 @@ node如同java，express如同tomcat。node能加载调用编译的c++库或文件(实现复杂功能)。
     npm是node的管理和分发工具，全称node package manager。
     node调试：node --debug some.js。使用chrome调试，用node --inspect-brk some.js；访问127.0.0.1:9229/json/list获取调试用url，用chrome访问它。
 
+
+
+    丢弃本地，用远程文件覆盖：git checkout 冲突文件路径，如git checkout some.txt，checkout表示放弃当前未commit的更改(add、modify等)
+    查看本地待提交、已修改等等：git status。
+    查看文件差异：git diff 文件路径。
+    切换分支到另一个分支时想保存当前分支还未commit的更改：git stash，等切换分支回来后用git stash pop即可基于上次最后更改继续，git stash list可查看所有stash。
+    git add一个文件后对文件进行修改，可继续用git add该文件这样就add了该文件最新内容，gitbash中git status如果有“modified : ..”红色说明add后又进行了文件修改，应该在commit该文件前再次进行git add否则commit的并非当前内容(commit总是对应最后一次add时文件内容)。
+    撤销上次commit：git revert commit_id ,或git reset commit_id,commit_id可通过git log查看，
+          revert(反转)把文件内容更改到该commit_id上一次提交时的内容并生成一次新的commit操作。
+          reset id1表示把当前最新commit重新设置为以前的id1,id1之后的commit信息清除，当不会更改文件内容，如果加上--hard参数则把文件内容也恢复到id1时的内容。
+
+
+
+    linux退出当前编辑器或命令：q。

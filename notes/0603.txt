@@ -1,0 +1,29 @@
+ko为UI改变数据的提供方便方式，不必为根据数据变化更新UI写相关代码，ko会自动完成该过程。
+ko不是与jQuery或者相似底层DOM API竞争，而是提供了建立数据模型和UI间联系的更高方式，它并非依赖jQuery但你可以同时使用。
+knockout三个核心特征：观察与依赖跟踪(observables adn dependency tracking)，声明时绑定(declarative bindings)、模型化(Templating)。
+Model-View-View Model(MVVM)是构建用户接口设计模式，通过三个部分描述简单方式建立复杂UI。
+	Model：服务端存放的数据，一般通过Ajax从服务端获取的模型数据。
+	view model：描述了数据和UI操作，例如列表编辑，view model是个对象它有列表项并定义操作列表项的方法如添加和移除。
+			使用KO时，view model是纯JavaScript对象不包含任何HTML。
+	view：UI，它展示view model中信息，向view model发送命令(如当单击按钮时)，当view model改变时进行更新。		
+		ko.observable添加改变探测，读取observable的值通过无参形式，写入新值把值作为参数。
+myViewModel.count = ko.observable(0);
+myViewModel.count();//读取observable对象count的值。
+myViewModel.count(3);//设置为3
+		当observable改变时通知自定义的订阅可通过subscribe，如
+var subscription=myViewModel.count.subscribe(function(newValue){...});
+可通过subscription.dispose()取消订阅。如果向在值改变前通知可通过.subscribe(function(oldValue){..},null,"beforeChange")。
+通知特定次数，count.extend({ratelimit:5})表示通知5次，5次后不再通知。
+		对集合的改变探测，myObservableArray=ko.observableArray();myObservableArray.push(..);
+myObservableArray().length；myObservableArray()[0]取第一个值；indexOf、pop、unshift、shift、sort、splice、replace、remove、removeAll、
+		Computed Observables，当包含observable项时，也会自动跟踪(computed observables)
+this.firstName=ko.observable();...;
+this.fullName = ko.pureComputed(function(){return this.firstName() + " " + this.lastName();}, this); 
+或者用ko.computed(f,this)，由于执行f的调用者可能并非viewModel导致this不是viewModel，可以用局部变量viewModel(){var self=this;this.firstName=..;ko.computed(function(){self.firstName..})}。
+		常见绑定，visible、text、html、css、style、attr；
+控制：foreach、if、ifnot、with、component；
+form：click、event、submit、enable、disable、value、textInput、hasFocus、checked、options、selectedOptions、uniqueName
+
+
+多选框 <select multiple="multiple" width="50" data-bind="options: items"> </select>
+this.items = ko.observableArray([{..},{..}]);
